@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <a href="/products/add">Add New Product</a>
+    <ol>
+        <li th:each="p : ${product}">
+            <a th:href="@{|/products/${p.ID}|}" th:text="${p.name}"></a>
+            <form th:method="delete" th:action="@{/products/}">
+                <button th:value="${p.ID}" name="id">Delete</button>
+            </form>
+        </li>
+    </ol>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" th:field="*{product.name} " required></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><input type="text" th:field="*{product.description}"></td>
+        </tr>
+        <tr>
+            <td>Link</td>
+            <td><input type="text" th:field="*{product.link}"></td>
+        </tr>
+        <tr>
+            <td>Manufacturer</td>
+            <td>
+                <select th:field="*{product.manufacturer.name}" required>
+                    <option  th:each="c : ${manufacturer}" th:value="${c.name}" th:text="${c.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td>
+                <select th:field="*{product.category.ID}" required>
+                    <option  th:each="c : ${category}" th:value="${c.ID}" th:text="${c.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
